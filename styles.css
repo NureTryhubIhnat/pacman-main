@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "Arcade Classic";
+  src: url("fonts/arcade-classic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#gameCanvas {
+  box-shadow: 10px 10px 20px black;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Arcade Classic", sans-serif;
+  color: lightgrey;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  height: 100vh;
+  background: linear-gradient(0deg, rgb(38, 73, 189) 0%, rgb(44, 15, 61) 100%);
+}
