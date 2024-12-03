@@ -54,22 +54,29 @@ function pause() {
 
 function drawGameEnd() {
   if (gameOver || gameWin) {
-    let text = " You Win!";
+    let text = "You Win!";
+
     if (gameOver) {
       text = "Game Over";
     }
 
+    // Заливаем фон под текстом
     ctx.fillStyle = "black";
     ctx.fillRect(0, canvas.height / 3.2, canvas.width, 80);
 
-    ctx.font = "75px Arcade Classic sans-serif;";
+    // Настраиваем шрифт и создаем градиент для текста
+    ctx.font = "45px Arcade Classic, sans-serif"; // Удалена лишняя точка с запятой
     const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
-    gradient.addColorStop("0", "magenta");
-    gradient.addColorStop("0.5", "blue");
-    gradient.addColorStop("1.0", "red");
+    gradient.addColorStop(0, "magenta");
+    gradient.addColorStop(0.5, "blue");
+    gradient.addColorStop(1, "red");
 
     ctx.fillStyle = gradient;
-    ctx.fillText(text, 10, canvas.height / 2);
+
+    // Центрируем текст
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(text, canvas.width / 2, canvas.height / 2);
   }
 }
 
@@ -77,32 +84,10 @@ tileMap.setCanvasSize(canvas);
 
 // добавить реализацию уровней сложности и в зависимости от того какая кнопка выбрана, передавать то или иное велью в код джс и генерить ту или иную карту
 
-// Первый уровень
-const firstLevelButton = document.getElementById("FirstLvlBtn");
-firstLevelButton.addEventListener("click", function () {
-  alert("Выбран первый уровень");
-});
-
-// Второй уровень
-const secondLevelButton = document.getElementById("SecondLvlBtn");
-secondLevelButton.addEventListener("click", function () {
-  alert("Выбран второй уровень");
-});
-
-// Третий уровень
-const thirdLevelButton = document.getElementById("ThirdLvlBtn");
-thirdLevelButton.addEventListener("click", function () {
-  alert("Выбран третий уровень");
-});
-
-// Четвертый уровень
-const forthLevelButton = document.getElementById("FourthLvlBtn");
-forthLevelButton.addEventListener("click", function () {
-  alert("Выбран четвертый уровень");
-});
-
 // Запуск игры
-const finalButton = document.getElementById("startGameBtn");
-finalButton.addEventListener("click", function () {
-  setInterval(gameLoop, 1000 / 75);
-});
+// const finalButton = document.getElementById("startGameBtn");
+// finalButton.addEventListener("click", function () {
+//   setInterval(gameLoop, 1000 / 75);
+// });
+
+setInterval(gameLoop, 1000 / 75);

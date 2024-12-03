@@ -1,24 +1,170 @@
-@font-face {
+body {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background: #191918;
+}
+/* @font-face {
   font-family: "Arcade Classic";
-  src: url("fonts/arcade-classic.ttf") format("truetype");
+  src: url("../fonts/arcade-classic.ttf") format("truetype"); 
   font-weight: normal;
   font-style: normal;
-}
+} */
 
+a {
+  text-decoration: none;
+}
 #gameCanvas {
   box-shadow: 10px 10px 20px black;
 }
 
-h1 {
+h1,
+h2 {
   text-align: center;
   font-family: "Arcade Classic", sans-serif;
   color: lightgrey;
 }
+h2 {
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+button {
+  background-color: #191918;
+}
+.btn {
+  font-size: 15px;
+  font-family: sans-serif;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin: 25px;
+  border: 2px solid #d2bdff;
+}
 
-body {
-  display: flex;
-  justify-content: center;
+.btn {
+  display: inline-block;
+  padding: 30px 61px;
+  color: #03e9f4;
+  text-decoration: none;
   overflow: hidden;
-  height: 100vh;
-  background: linear-gradient(0deg, rgb(38, 73, 189) 0%, rgb(44, 15, 61) 100%);
+  filter: hue-rotate(0deg);
+  transition: all 0.1s linear;
+}
+
+.btn:hover {
+  border: 1px solid transparent;
+}
+
+.btn:hover span {
+  position: absolute;
+  display: block;
+}
+
+.btn:hover span:nth-child(1) {
+  filter: hue-rotate(0deg);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #3a86ff);
+  animation: animate-1 1s linear infinite;
+}
+
+.btn:hover span:nth-child(2) {
+  filter: hue-rotate(60deg);
+  top: -100%;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #3a86ff);
+  animation: animate-2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+.btn:hover span:nth-child(3) {
+  filter: hue-rotate(120deg);
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background: linear-gradient(270deg, transparent, #3a86ff);
+  animation: animate-3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+.btn:hover span:nth-child(4) {
+  filter: hue-rotate(300deg);
+  bottom: -100%;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #3a86ff);
+  animation: animate-4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+.bcktomenu {
+  display: block;
+}
+
+@keyframes star {
+  0% {
+    margin-left: -8px;
+    margin-top: -8px;
+  }
+  25% {
+    margin-left: 194px;
+    margin-top: -8px;
+  }
+  50% {
+    margin-left: 194px;
+    margin-top: 75px;
+  }
+  75% {
+    margin-left: -8px;
+    margin-top: 75px;
+  }
+  100% {
+    margin-left: -8px;
+    margin-top: -8px;
+  }
+}
+
+@keyframes animate-1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+@keyframes animate-2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+@keyframes animate-3 {
+  0% {
+    right: -100%;
+    height: 3px;
+  }
+  50%,
+  100% {
+    height: 2px;
+    right: 100%;
+  }
+}
+@keyframes animate-4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
 }
